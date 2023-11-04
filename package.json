@@ -1,0 +1,27 @@
+{
+  "name": "mcga-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidPagliano/mcga-backend.git"
+  },
+  "author": "Pedro Traverso y David Pagliano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidPagliano/mcga-backend/issues"
+  },
+  "homepage": "https://github.com/DavidPagliano/mcga-backend#readme",
+  "dependencies": {
+    "@types/express": "^4.17.20",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
