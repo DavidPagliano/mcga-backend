@@ -8,8 +8,18 @@ const userRouter = Router();
 
 userRouter.get('/', userController.getUsers);
 
-//POST - http://localhost/user/create
+//GET - http://localhost/user/
+userRouter.get('/:1d', userController.getByUser);
 
+//POST - http://localhost/user/create
 userRouter.post('/users/create',userController.createUser);
+
+//PUT - http://localhost/user/update
+userRouter.put('/user/update', userController.updateUser);
+
+//DELETE - http://localhost/user/delete
+userRouter.delete('/user/delete', userController.deleteUser);
+
+
 
 export default userRouter;
