@@ -34,7 +34,7 @@ mongoose
     app.listen(port, () => {
       console.log({
         level: 'info',
-        message: `Server listening on port ${port}`,
+        message: `Server listening on port:  http://localhost:${port}`,
         label: 'server',
       });
     });

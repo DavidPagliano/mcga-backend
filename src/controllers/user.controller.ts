@@ -3,12 +3,22 @@ import user from '../models/user';
 
 const userController = {
   getUsers: async (_req: Request, res: Response) => {
-    const allUser = await user.find({});
-    return res.status(200).json({
-      status: 200,
-      total: allUser.length,
-      data: allUser,
-    });
+    try {
+      const allUser = await user.find({});
+      return res.status(200).json({
+        status: 200,
+        total: allUser.length,
+        data: allUser,
+      });
+    } catch (error) {
+      if (error instanceof Error) {
+        return res.status(400).json({
+          message: error.message,
+          error: true,
+        });
+      }
+    }
+    
   },
   getByUser: async(_req:Request, res: Response) => {
     try {

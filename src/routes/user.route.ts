@@ -12,7 +12,7 @@ userRouter.get('/', userController.getUsers);
 userRouter.get('/:1d', userController.getByUser);
 
 //POST - http://localhost/user/create
-userRouter.post('/users/create',userController.createUser);
+userRouter.post('/user/create',userController.createUser);
 
 //PUT - http://localhost/user/update
 userRouter.put('/user/update', userController.updateUser);
