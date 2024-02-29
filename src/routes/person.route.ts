@@ -4,20 +4,20 @@ import peronController from '../controllers/person.controller';
 
 const personRouter = Router();
 
-//GET - http://localhost/person/
+//GET - http://localhost:3000/person/
 
 personRouter.get('/', peronController.getPersons);
 
-//GET - http://localhost/person/
+//GET - http://localhost:3000/person/
 personRouter.get('/:1d', peronController.getByPerson);
 
-//POST - http://localhost/person/create
+//POST - http://localhost:3000/person/create
 personRouter.post('/person/create',peronController.createPerson);
 
-//PUT - http://localhost/person/update
+//PUT - http://localhost:3000/person/update
 personRouter.put('/person/update', peronController.updatePerson);
 
-//DELETE - http://localhost/person/delete
+//DELETE - http://localhost:3000/person/delete
 personRouter.delete('/person/delete', peronController.deletePerson);
 
 

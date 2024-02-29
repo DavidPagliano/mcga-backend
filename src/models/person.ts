@@ -2,79 +2,40 @@ import { Schema, model } from "mongoose";
 import  { PersonData } from '../types/person.interface';
 
 const PersonSchema = new Schema({
-    name:{
+    id: {
+        type: Number,
+        required: true
+    },
+    Nombre:{
         type: String,
         minLength: 4,
         maxLength: 12,
         required: true,
     },
-    lastName:{
+    Apellido:{
         type: String,
         minLength: 4,
         maxLength: 12,
         required: true,
     },
-    address: [
-        {
-            nameAddress: {
-                type: String,
-                required: true,
-            },
-            numberAddress: {
-                type: Number,
-                required: true,
-            },
-            city: {
-                type: String,
-                required: true,
-            },
-            state: {
-                type: String,
-                required: true,
-            },
-            country: {
-                type: String,
-                required: true,
-            }
-        }
-    ],
-    birthdate: {
-        type: Date,
-        required: false,
-    },
-    dni: {
-        type: Number,
-        max: 8,
-        required: true,
-    },
-    phone: {
-        type: Number,
-        max: 8,
-        required: true,
-    },
-    email: {
+    Email: {
         type: String,
         maxLength: 8,
         required: true,
     },
-    gender:[
-        {
-            female: {
-                type: String,
-                required: true,
-            },
-            male: {
-                type: String,
-                required: true,
-            },
-            other: {
-                type: String,
-                required: true,
-            }
-        }
-    ]
-
-
+    Direccion: {
+        type:String,
+        required: true
+    },
+    Fecha_de_nacimiento: {
+        type: Date,
+        required: false,
+    },
+    Telefono: {
+        type: Number,
+        max: 8,
+        required: true,
+    }
 })
 const Person = model<PersonData>('Person', PersonSchema);
 export default Person;

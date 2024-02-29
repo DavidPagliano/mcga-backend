@@ -13,7 +13,6 @@ app.get('/', (req, res: Response) => {
     res.status(200).send({
       message: 'Server is up ✅ - Environment: ' + process.env.ENV,
       welcome: 'Welcome to the system',
-      data: undefined,
       error: false,
     });
 });
