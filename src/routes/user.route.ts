@@ -8,17 +8,17 @@ const userRouter = Router();
 
 userRouter.get('/', userController.getUsers);
 
-//GET - http://localhost:3000/user/
-userRouter.get('/:1d', userController.getByUser);
+//GET - http://localhost:3000/user/:id
+userRouter.get('/:id', userController.getByUser);
 
-//POST - http://localhost/user/create
-userRouter.post('/user/create',userController.createUser);
+//POST - http://localhost:3000/user/create
+userRouter.post('/create',userController.createUser);
 
-//PUT - http://localhost:3000/user/update
-userRouter.put('/user/update', userController.updateUser);
+//PUT - http://localhost:3000/user/update/:id
+userRouter.put('/update/:id', userController.updateUser);
 
-//DELETE - http://localhost:3000/user/delete
-userRouter.delete('/user/delete', userController.deleteUser);
+//DELETE - http://localhost:3000/user/delete/:id
+userRouter.delete('/delete/:id', userController.deleteUser);
 
 
 
