@@ -1,11 +1,7 @@
 import { Schema, model } from "mongoose";
-import  { PersonData } from '../types/person.interface';
+import  { ClientData } from '../types/client.interface';
 
-const PersonSchema = new Schema({
-    id: {
-        type: Number,
-        required: true
-    },
+const ClientSchema = new Schema({
     Nombre:{
         type: String,
         minLength: 4,
@@ -20,7 +16,7 @@ const PersonSchema = new Schema({
     },
     Email: {
         type: String,
-        maxLength: 8,
+        maxLength: 20,
         required: true,
     },
     Direccion: {
@@ -29,13 +25,14 @@ const PersonSchema = new Schema({
     },
     Fecha_de_nacimiento: {
         type: Date,
+        default: '1900/01/01',
         required: false,
     },
     Telefono: {
         type: Number,
-        max: 8,
+        maxLength: 16,
         required: true,
     }
 })
-const Person = model<PersonData>('Person', PersonSchema);
-export default Person;
+const Client = model<ClientData>('Client', ClientSchema);
+export default Client;

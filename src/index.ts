@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import * as mongoose from 'mongoose';
 import user from './models/user';
-import Person from './models/person';
+import Client from './models/client';
 import product from './models/product';
 import app from './app';
 dotenv.config();
@@ -19,13 +19,13 @@ mongoose
     console.log({ level: 'info', message: '✅ Database '+ db.connection.db.databaseName +' connected'});
     
     const isExistCollection = db.connection.db.collection.name; //I ask if the collection name exist in the db
-    if (isExistCollection == 'user' || isExistCollection == 'people' || isExistCollection == 'products') {
+    if (isExistCollection == 'user' || isExistCollection == 'client' || isExistCollection == 'products') {
       console.log({ level: 'info', message: 'Create collections in ' + db.connection.db.databaseName });
       user.createCollection();
-      Person.createCollection();
+      Client.createCollection();
       product.createCollection();
       console.log({ level: 'info', message: '✅ user collection created'});
-      console.log({ level: 'info', message: '✅ person collection created'});
+      console.log({ level: 'info', message: '✅ client collection created'});
       console.log({ level: 'info', message: '✅ product collection created'});
     } else {
       console.log({ level: 'infow', message: '✅ The collections exist in: ' + db.connection.db.databaseName });

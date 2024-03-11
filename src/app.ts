@@ -1,7 +1,7 @@
 import express, { Express, Response } from 'express';
 import cors from 'cors';
 import userRouter from './routes/user.route';
-import personRouter from './routes/person.route';
+import clientRouter from './routes/client.route';
 import productRouter from './routes/product.route';
 const app: Express = express();
 const ACCEPTED_ORIGINS = [
@@ -26,7 +26,7 @@ app.use(cors({
 }))
 
 app.use('/user', userRouter);
-app.use('/person', personRouter);
+app.use('/client', clientRouter);
 app.use('/product', productRouter);
 app.get('/', (req, res: Response) => {
     res.status(200).send({

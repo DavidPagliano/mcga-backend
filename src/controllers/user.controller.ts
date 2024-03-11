@@ -121,7 +121,6 @@ const userController = {
   deleteUser: async (req: Request, res: Response) => {
     try {
       const userId: string = req.params.id;
-
       // Eliminar el usuario utilizando findByIdAndDelete
       const userFound = await user.findByIdAndDelete(userId);
 
