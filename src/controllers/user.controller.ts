@@ -17,8 +17,7 @@ const userController = {
           error: true,
         });
       }
-    }
-    
+    }  
   },
   getByUser: async(_req:Request, res: Response) => {
     try {

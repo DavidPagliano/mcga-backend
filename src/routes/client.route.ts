@@ -4,20 +4,20 @@ import clientController from '../controllers/client.controller';
 
 const clientRouter = Router();
 
-//GET - http://localhost:3000/person/
+//GET - http://localhost:3000/client/
 
 clientRouter.get('/', clientController.getClients);
 
-//GET - http://localhost:3000/person/
+//GET - http://localhost:3000/client/
 clientRouter.get('/:id', clientController.getByClient);
 
-//POST - http://localhost:3000/person/create
+//POST - http://localhost:3000/client/create
 clientRouter.post('/create',clientController.createClient);
 
-//PUT - http://localhost:3000/person/update
+//PUT - http://localhost:3000/client/update
 clientRouter.put('/update', clientController.updateClient);
 
-//DELETE - http://localhost:3000/person/delete
+//DELETE - http://localhost:3000/client/delete
 clientRouter.delete('/delete', clientController.deleteClient);
 
 
