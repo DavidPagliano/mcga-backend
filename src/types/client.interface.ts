@@ -4,6 +4,5 @@ export interface ClientData {
     apellido: string;
     email: string;
     direccion: string;
-    fechaDeNacimiento: Date;
     telefono: number;  
 }
