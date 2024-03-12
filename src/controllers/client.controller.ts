@@ -73,7 +73,7 @@ const clientController = {
       const clientId: string = req.params.id;
       const {Nombre, Apellido, Direccion, Fecha_de_nacimiento, Telefono} = req.body; 
       
-      if(!Nombre || Apellido || Direccion || Fecha_de_nacimiento || Telefono ) {
+      if(!Nombre || !Apellido || !Direccion || !Fecha_de_nacimiento || !Telefono ) {
       return res.status(400).json({
         message: 'Se requieren todos los campos: Nombre, Apellido, Direccion, Fecha de nacimiento, Telefono',
         error: true,

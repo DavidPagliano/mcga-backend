@@ -15,10 +15,10 @@ productRouter.get('/:id', productController.getByProduct);
 productRouter.post('/create',productController.createProduct);
 
 //PUT - http://localhost:3000/product/update/:id
-productRouter.put('/update', productController.updateProduct);
+productRouter.put('/update/:id', productController.updateProduct);
 
 //DELETE - http://localhost:3000/product/delete/:id
-productRouter.delete('/delete', productController.deleteProduct);
+productRouter.delete('/delete/:id', productController.deleteProduct);
 
 
 

@@ -72,10 +72,10 @@ const productController = {
   updateProduct: async (req: Request, res: Response) => {
     try {
       const productId: string = req.params.id;
-      const {id,Descripcion, Stock, Precio} = req.body;
-      if (!id || !Descripcion || !Stock || !Precio ) {
+      const {Descripcion, Stock, Precio} = req.body;
+      if (!Descripcion || !Stock || !Precio ) {
         return res.status(400).json({
-          message: 'Se requieren todos los campos: id, Descripcion, Stock, Precio',
+          message: 'Se requieren todos los campos: Descripcion, Stock, Precio',
           error: true,
         });
       }
@@ -88,7 +88,7 @@ const productController = {
           error: true,
         });
       }
-      return res.status(204).json({
+      return res.status(200).json({
         message: 'Producto actualizado exitosamente.',
         data: productUpdated,
         error: false,

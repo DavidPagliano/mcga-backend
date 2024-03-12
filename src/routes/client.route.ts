@@ -15,10 +15,10 @@ clientRouter.get('/:id', clientController.getByClient);
 clientRouter.post('/create',clientController.createClient);
 
 //PUT - http://localhost:3000/client/update/:id
-clientRouter.put('/update', clientController.updateClient);
+clientRouter.put('/update/:id', clientController.updateClient);
 
 //DELETE - http://localhost:3000/client/delete/:id
-clientRouter.delete('/delete', clientController.deleteClient);
+clientRouter.delete('/delete/:id', clientController.deleteClient);
 
 
 
