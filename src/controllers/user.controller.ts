@@ -21,7 +21,7 @@ const userController = {
   },
   getByUser: async(_req:Request, res: Response) => {
     try {
-      // Convierto el objectID de mongoDB a string, para hacer la busqueda en el endpoint
+      // Cambio el id de mongo DB por el codigo para usar de busqueda
       const userCodigo: number = parseInt(_req.params.Codigo);
 
       const userFound = await user.findOne({ Codigo: userCodigo });
