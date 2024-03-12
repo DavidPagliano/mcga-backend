@@ -40,7 +40,7 @@ app.use('/client', clientRouter);
 app.use('/product', productRouter);
 app.get('/', (req, res: Response) => {
     res.status(200).send({
-      message: 'Server is up ✅ - Environment: ' + process.env.ENV,
+      message: 'Server is up ✅ - Environment: http://localhost:3000' ,
       welcome: 'Welcome to the system',
       error: false,
     });
