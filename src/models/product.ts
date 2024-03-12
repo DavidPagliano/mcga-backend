@@ -3,26 +3,21 @@ import { ProductData } from "../types/product.interface";
 
 
 const productSchema = new Schema({
-    name: {
+    id: {
+      type: Number,
+      required: true,
+    },
+    Descripcion: {
       type: String,
       required: true,
     },
-    category: {
-      type: String,
+    Stock: {
+      type: Number,
       required: true,
     },
-    description: {
-      type: String,
-      required: false,
-    },
-    createdAt: {
-      type: Date,
-      default: new Date(),
-      required: false,
-    },
-    deletedAt: {
-      type: Date,
-      required: false,
+    Precio: {
+      type: Number,
+      required: true,
     },
   });
   const Product = model<ProductData>('Product', productSchema);

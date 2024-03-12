@@ -51,8 +51,8 @@ const userController = {
 
       const {email, password, termsConditions} = req.body;
       const newUser = new user({ ...req.body });
-
       const addUser = await newUser.save();
+      
       if(email && password && termsConditions) {
         if (addUser) {
           return res.status(201).json({
