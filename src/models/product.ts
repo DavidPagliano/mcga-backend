@@ -3,7 +3,7 @@ import { ProductData } from "../types/product.interface";
 
 
 const productSchema = new Schema({
-    id: {
+    Codigo: {
       type: Number,
       required: true,
     },

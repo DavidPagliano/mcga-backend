@@ -21,8 +21,8 @@ const productController = {
   },
   getByProduct: async (_req:Request, res: Response) => {
     try {
-      const productId: string = _req.params.id;
-      const productFound = await Product.findOne({_id: productId});
+      const productCodigo: number = parseInt(_req.params.Codigo);
+      const productFound = await Product.findOne({Codigo: productCodigo});
 
       if(!productFound){
         return res.status(404).json({
@@ -46,11 +46,11 @@ const productController = {
   },
   createProduct: async (_req: Request, res: Response) => {
       try {
-        const {id,Descripcion, Stock, Precio} = _req.body;
+        const {Codigo,Descripcion, Stock, Precio} = _req.body;
         const newProduct = new Product({..._req.body});
         const addProduct = await newProduct.save();
 
-        if (id && Descripcion && Stock && Precio ){
+        if (Codigo  && Descripcion && Stock && Precio ){
           if (addProduct) {
             return res.status(201).json({
                 message: 'Producto creado exitosamente.',
@@ -71,7 +71,7 @@ const productController = {
   },
   updateProduct: async (req: Request, res: Response) => {
     try {
-      const productId: string = req.params.id;
+      const productCodigo: number = parseInt(req.params.Codigo);
       const {Descripcion, Stock, Precio} = req.body;
       if (!Descripcion || !Stock || !Precio ) {
         return res.status(400).json({
@@ -79,7 +79,7 @@ const productController = {
           error: true,
         });
       }
-      const productUpdated = await Product.findByIdAndUpdate(productId, req.body, {
+      const productUpdated = await Product.findOneAndUpdate({Codigo: productCodigo}, req.body, {
         new: true,
       });
       if (!productUpdated) {
@@ -104,8 +104,8 @@ const productController = {
   },
   deleteProduct: async (req: Request, res: Response) => {
     try {
-      const productID: string = req.params.id;
-      const productFound = await Product.findByIdAndDelete(productID);
+      const productCodigo: number = parseInt(req.params.Codigo);
+      const productFound = await Product.findOneAndDelete({Codigo: productCodigo});
       if (!productFound) {
         return res.status(404).json({
           message: 'Producto no encontrado',

@@ -1,8 +1,9 @@
 export interface ClientData {
-    Nombre: string;
-    Apellido: string;
-    Email: string;
-    Direccion: string;
-    FechaDeNacimiento: Date;
-    Telefono: number;  
+    codigo: number;
+    nombre: string;
+    apellido: string;
+    email: string;
+    direccion: string;
+    fechaDeNacimiento: Date;
+    telefono: number;  
 }

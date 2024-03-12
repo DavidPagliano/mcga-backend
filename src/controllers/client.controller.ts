@@ -22,8 +22,8 @@ const clientController = {
     },
   getByClient: async(_req:Request, res: Response) => {
     try {
-      const clientId: string = _req.params.id;
-      const clientFound = await Client.findOne({_id: clientId});
+      const clientCodigo: number = parseInt(_req.params.Codigo);
+      const clientFound = await Client.findOne({Codigo: clientCodigo});
       if (!clientFound) return res.status(404).json({
         message: 'Cliente no encontrado',
         error: true,
@@ -44,12 +44,12 @@ const clientController = {
   },
   createClient: async (req: Request, res: Response) => {
     try {
-      const {Nombre, Apellido, Direccion, Fecha_de_nacimiento, Telefono} = req.body;
+      const {Nombre, Apellido,Email, Direccion, Telefono} = req.body;
     
       const newClient = new Client({ ...req.body });
 
       const addClient = await newClient.save();
-      if(Nombre && Apellido && Direccion && Fecha_de_nacimiento && Telefono) {
+      if(Nombre && Apellido && Email && Direccion && Telefono) {
         if (addClient) {
           return res.status(201).json({
             message: 'Cliente creada exitosamente.',
@@ -70,17 +70,17 @@ const clientController = {
   },
   updateClient: async (req: Request, res: Response) => {
     try {
-      const clientId: string = req.params.id;
-      const {Nombre, Apellido, Direccion, Fecha_de_nacimiento, Telefono} = req.body; 
+      const clientCodigo: number = parseInt(req.params.Codigo);
+      const {Nombre, Apellido, Email, Direccion, Telefono} = req.body; 
       
-      if(!Nombre || !Apellido || !Direccion || !Fecha_de_nacimiento || !Telefono ) {
+      if(!Nombre || !Apellido || !Email || !Direccion || !Telefono ) {
       return res.status(400).json({
         message: 'Se requieren todos los campos: Nombre, Apellido, Direccion, Fecha de nacimiento, Telefono',
         error: true,
       });
       }
 
-      const clientUpdated = await Client.findByIdAndUpdate(clientId, req.body, {
+      const clientUpdated = await Client.findOneAndUpdate({Codigo: clientCodigo}, req.body, {
       new: true,
       });
 
@@ -108,8 +108,8 @@ const clientController = {
   },
   deleteClient: async (req: Request, res: Response) => {
     try {
-      const clientId: string = req.params.id;
-      const clientFound = await Client.findByIdAndDelete(clientId);
+      const clientCodigo: number = parseInt(req.params.Codigo);
+      const clientFound = await Client.findOneAndDelete({Codigo: clientCodigo});
       if (!clientFound) {
         return res.status(404).json({
           message: 'Cliente no encontrado',

@@ -22,9 +22,9 @@ const userController = {
   getByUser: async(_req:Request, res: Response) => {
     try {
       // Convierto el objectID de mongoDB a string, para hacer la busqueda en el endpoint
-      const userId: string = _req.params.id;
+      const userCodigo: number = parseInt(_req.params.Codigo);
 
-      const userFound = await user.findOne({ _id: userId });
+      const userFound = await user.findOne({ Codigo: userCodigo });
       if (!userFound) {
         return res.status(404).json({
           message: 'Usuario no encontrado',
@@ -75,7 +75,7 @@ const userController = {
   },
   updateUser: async (req: Request, res: Response) => {
     try {
-      const userId: string = req.params.id;
+      const userCodigo: number = parseInt(req.params.Codigo);
 
       // Verificar si los campos requeridos están presentes en el cuerpo de la solicitud
       const {email, password, termsConditions} = req.body;
@@ -86,8 +86,8 @@ const userController = {
         });
       }
 
-      // Actualizar el usuario utilizando findByIdAndUpdate
-      const userUpdated = await user.findByIdAndUpdate(userId, req.body, {
+      // Actualizar el usuario utilizando findOneAndUpdate
+      const userUpdated = await user.findOneAndUpdate({Codigo: userCodigo}, req.body, {
         new: true,
       });
 
@@ -119,9 +119,9 @@ const userController = {
   },
   deleteUser: async (req: Request, res: Response) => {
     try {
-      const userId: string = req.params.id;
+      const userCodigo: number = parseInt(req.params.Codigo);
       // Eliminar el usuario utilizando findByIdAndDelete
-      const userFound = await user.findByIdAndDelete(userId);
+      const userFound = await user.findOneAndDelete({Codigo: userCodigo});
 
       // Verificar si se encontró y eliminó el usuario correctamente
       if (!userFound) {

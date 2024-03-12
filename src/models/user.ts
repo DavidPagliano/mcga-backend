@@ -1,19 +1,19 @@
 import { Schema, model } from "mongoose";
 import  { UserData } from '../types/user.interface';
 const userSchema = new Schema({
-    email:{
+    Codigo:{
+        type: Number,
+        required: true,
+    },
+    Email:{
         type: String,
         required: true,
     },
-    password: {
+    Password: {
         type: String,
         minLength: 8,
         required:true,
     },
-    termsConditions: {
-        type: Boolean,
-        required: true
-    }
 })
 const user = model<UserData>('User', userSchema);
 export default user;

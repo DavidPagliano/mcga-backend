@@ -2,6 +2,10 @@ import { Schema, model } from "mongoose";
 import  { ClientData } from '../types/client.interface';
 
 const ClientSchema = new Schema({
+    Codigo:{
+        type: Number,
+        required: true,
+    },
     Nombre:{
         type: String,
         minLength: 4,
@@ -19,11 +23,6 @@ const ClientSchema = new Schema({
     Direccion: {
         type:String,
         required: true
-    },
-    Fecha_de_nacimiento: {
-        type: Date,
-        default: '1900/01/01',
-        required: false,
     },
     Telefono: {
         type: Number,

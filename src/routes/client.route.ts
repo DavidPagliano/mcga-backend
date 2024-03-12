@@ -8,17 +8,17 @@ const clientRouter = Router();
 
 clientRouter.get('/', clientController.getClients);
 
-//GET - http://localhost:3000/client/:id
-clientRouter.get('/:id', clientController.getByClient);
+//GET - http://localhost:3000/client/:Codigo
+clientRouter.get('/:Codigo', clientController.getByClient);
 
 //POST - http://localhost:3000/client/create
 clientRouter.post('/create',clientController.createClient);
 
-//PUT - http://localhost:3000/client/update/:id
-clientRouter.put('/update/:id', clientController.updateClient);
+//PUT - http://localhost:3000/client/update/:Codigo
+clientRouter.put('/update/:Codigo', clientController.updateClient);
 
-//DELETE - http://localhost:3000/client/delete/:id
-clientRouter.delete('/delete/:id', clientController.deleteClient);
+//DELETE - http://localhost:3000/client/delete/:Codigo
+clientRouter.delete('/delete/:Codigo', clientController.deleteClient);
 
 
 

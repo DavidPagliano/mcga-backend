@@ -7,17 +7,17 @@ const userRouter = Router();
 
 userRouter.get('/', userController.getUsers);
 
-//GET - http://localhost:3000/user/:id
-userRouter.get('/:id', userController.getByUser);
+//GET - http://localhost:3000/user/:codigo
+userRouter.get('/:Codigo', userController.getByUser);
 
 //POST - http://localhost:3000/user/create
 userRouter.post('/create',userController.createUser);
 
-//PUT - http://localhost:3000/user/update/:id
-userRouter.put('/update/:id', userController.updateUser);
+//PUT - http://localhost:3000/user/update/:codigo
+userRouter.put('/update/:Codigo', userController.updateUser);
 
-//DELETE - http://localhost:3000/user/delete/:id
-userRouter.delete('/delete/:id', userController.deleteUser);
+//DELETE - http://localhost:3000/user/delete/:codigo
+userRouter.delete('/delete/:Codigo', userController.deleteUser);
 
 
 
