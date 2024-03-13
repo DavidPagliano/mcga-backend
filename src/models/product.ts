@@ -3,19 +3,19 @@ import { ProductData } from "../types/product.interface";
 
 
 const productSchema = new Schema({
-    Codigo: {
+    codigo: {
       type: Number,
       required: true,
     },
-    Descripcion: {
+    descripcion: {
       type: String,
       required: true,
     },
-    Stock: {
+    stock: {
       type: Number,
       required: true,
     },
-    Precio: {
+    precio: {
       type: Number,
       required: true,
     },

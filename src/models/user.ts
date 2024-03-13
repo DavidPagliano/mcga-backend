@@ -1,15 +1,15 @@
 import { Schema, model } from "mongoose";
 import  { UserData } from '../types/user.interface';
 const userSchema = new Schema({
-    Codigo:{
+    codigo:{
         type: Number,
         required: true,
     },
-    Email:{
+    email:{
         type: String,
         required: true,
     },
-    Password: {
+    password: {
         type: String,
         minLength: 8,
         required:true,

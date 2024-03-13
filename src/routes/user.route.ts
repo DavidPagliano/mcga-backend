@@ -8,16 +8,16 @@ const userRouter = Router();
 userRouter.get('/', userController.getUsers);
 
 //GET - http://localhost:3000/user/:codigo
-userRouter.get('/:Codigo', userController.getByUser);
+userRouter.get('/:codigo', userController.getByUser);
 
 //POST - http://localhost:3000/user/create
 userRouter.post('/create',userController.createUser);
 
 //PUT - http://localhost:3000/user/update/:codigo
-userRouter.put('/update/:Codigo', userController.updateUser);
+userRouter.put('/update/:codigo', userController.updateUser);
 
 //DELETE - http://localhost:3000/user/delete/:codigo
-userRouter.delete('/delete/:Codigo', userController.deleteUser);
+userRouter.delete('/delete/:codigo', userController.deleteUser);
 
 
 

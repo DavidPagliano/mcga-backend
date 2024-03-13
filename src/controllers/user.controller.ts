@@ -22,9 +22,9 @@ const userController = {
   getByUser: async(_req:Request, res: Response) => {
     try {
       // Cambio el id de mongo DB por el codigo para usar de busqueda
-      const userCodigo: number = parseInt(_req.params.Codigo);
+      const userCodigo: number = parseInt(_req.params.codigo);
 
-      const userFound = await user.findOne({ Codigo: userCodigo });
+      const userFound = await user.findOne({ codigo: userCodigo });
       if (!userFound) {
         return res.status(404).json({
           message: 'Usuario no encontrado',
@@ -49,11 +49,11 @@ const userController = {
   createUser: async (req: Request, res: Response) => {
     try {
 
-      const {email, password, termsConditions} = req.body;
+      const {codigo, email, password} = req.body;
       const newUser = new user({ ...req.body });
       const addUser = await newUser.save();
       
-      if(email && password && termsConditions) {
+      if(codigo && email && password) {
         if (addUser) {
           return res.status(201).json({
             message: 'Usuario creado exitosamente.',
@@ -75,11 +75,11 @@ const userController = {
   },
   updateUser: async (req: Request, res: Response) => {
     try {
-      const userCodigo: number = parseInt(req.params.Codigo);
+      const userCodigo: number = parseInt(req.params.codigo);
 
       // Verificar si los campos requeridos están presentes en el cuerpo de la solicitud
-      const {email, password, termsConditions} = req.body;
-      if (!email || !password || !termsConditions) {
+      const {codigo, email, password} = req.body;
+      if (!codigo || !email || !password ) {
         return res.status(400).json({
           message: 'Se requieren todos los campos: email, password, termsConditions',
           error: true,
@@ -87,7 +87,7 @@ const userController = {
       }
 
       // Actualizar el usuario utilizando findOneAndUpdate
-      const userUpdated = await user.findOneAndUpdate({Codigo: userCodigo}, req.body, {
+      const userUpdated = await user.findOneAndUpdate({codigo: userCodigo}, req.body, {
         new: true,
       });
 
@@ -119,9 +119,9 @@ const userController = {
   },
   deleteUser: async (req: Request, res: Response) => {
     try {
-      const userCodigo: number = parseInt(req.params.Codigo);
+      const userCodigo: number = parseInt(req.params.codigo);
       // Eliminar el usuario utilizando findByIdAndDelete
-      const userFound = await user.findOneAndDelete({Codigo: userCodigo});
+      const userFound = await user.findOneAndDelete({codigo: userCodigo});
 
       // Verificar si se encontró y eliminó el usuario correctamente
       if (!userFound) {

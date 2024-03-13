@@ -2,29 +2,29 @@ import { Schema, model } from "mongoose";
 import  { ClientData } from '../types/client.interface';
 
 const ClientSchema = new Schema({
-    Codigo:{
+    codigo:{
         type: Number,
         required: true,
     },
-    Nombre:{
+    nombre:{
         type: String,
         minLength: 4,
         required: true,
     },
-    Apellido:{
+    apellido:{
         type: String,
         minLength: 4,
         required: true,
     },
-    Email: {
+    email: {
         type: String,
         required: true,
     },
-    Direccion: {
+    direccion: {
         type:String,
         required: true
     },
-    Telefono: {
+    telefono: {
         type: Number,
         required: true,
     }

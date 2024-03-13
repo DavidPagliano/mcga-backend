@@ -8,17 +8,17 @@ const productRouter = Router();
 
 productRouter.get('/', productController.getProducts);
 
-//GET - http://localhost/product/:Codigo
-productRouter.get('/:Codigo', productController.getByProduct);
+//GET - http://localhost/product/:codigo
+productRouter.get('/:codigo', productController.getByProduct);
 
 //POST - http://localhost:3000/product/create
 productRouter.post('/create',productController.createProduct);
 
-//PUT - http://localhost:3000/product/update/:Codigo
-productRouter.put('/update/:Codigo', productController.updateProduct);
+//PUT - http://localhost:3000/product/update/:codigo
+productRouter.put('/update/:codigo', productController.updateProduct);
 
-//DELETE - http://localhost:3000/product/delete/:Codigo
-productRouter.delete('/delete/:Codigo', productController.deleteProduct);
+//DELETE - http://localhost:3000/product/delete/:codigo
+productRouter.delete('/delete/:codigo', productController.deleteProduct);
 
 
 
