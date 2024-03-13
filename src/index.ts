@@ -19,7 +19,7 @@ mongoose
     console.log({ level: 'info', message: '✅ Database '+ db.connection.db.databaseName +' connected'});
     
     const isExistCollection = db.connection.db.collection.name; //I ask if the collection name exist in the db
-    if (isExistCollection == 'user' || isExistCollection == 'client' || isExistCollection == 'products') {
+    if (isExistCollection == 'user' || isExistCollection == 'client' || isExistCollection == 'product') {
       console.log({ level: 'info', message: 'Create collections in ' + db.connection.db.databaseName });
       user.createCollection();
       Client.createCollection();
