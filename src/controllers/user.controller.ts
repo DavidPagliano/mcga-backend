@@ -81,7 +81,7 @@ const userController = {
       const {codigo, email, password} = req.body;
       if (!codigo || !email || !password ) {
         return res.status(400).json({
-          message: 'Se requieren todos los campos: email, password, termsConditions',
+          message: 'Se requieren todos los campos: codigo, email, password',
           error: true,
         });
       }

@@ -75,7 +75,7 @@ const productController = {
       const {descripcion, stock, precio} = req.body;
       if (!descripcion || !stock || !precio ) {
         return res.status(400).json({
-          message: 'Se requieren todos los campos: Descripcion, Stock, Precio',
+          message: 'Se requieren todos los campos: descripcion, stock, precio',
           error: true,
         });
       }

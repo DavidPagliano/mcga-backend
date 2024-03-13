@@ -75,7 +75,7 @@ const clientController = {
       
       if(!nombre || !apellido || !email || !direccion || !telefono ) {
       return res.status(400).json({
-        message: 'Se requieren todos los campos: Nombre, Apellido, Direccion, Fecha de nacimiento, Telefono',
+        message: 'Se requieren todos los campos: nombre, apellido, direccion, telefono',
         error: true,
       });
       }
