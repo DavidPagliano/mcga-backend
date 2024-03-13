@@ -1,5 +1,6 @@
-import { Schema, model } from "mongoose";
-import  { UserData } from '../types/user.interface';
+import { Schema, model } from 'mongoose';
+import { UserData } from '../types/user.interface';
+
 const userSchema = new Schema({
     codigo:{
         type: Number,
@@ -12,8 +13,10 @@ const userSchema = new Schema({
     password: {
         type: String,
         minLength: 8,
-        required:true,
+        required: true,
     },
-})
+}, { versionKey: false });
+
 const user = model<UserData>('User', userSchema);
+
 export default user;

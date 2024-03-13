@@ -1,5 +1,5 @@
-import { Schema, model } from "mongoose";
-import  { ClientData } from '../types/client.interface';
+import { Schema, model } from 'mongoose';
+import { ClientData } from '../types/client.interface';
 
 const ClientSchema = new Schema({
     codigo:{
@@ -21,13 +21,15 @@ const ClientSchema = new Schema({
         required: true,
     },
     direccion: {
-        type:String,
+        type: String,
         required: true
     },
     telefono: {
         type: Number,
         required: true,
     }
-})
+}, { versionKey: false });
+
 const Client = model<ClientData>('Client', ClientSchema);
+
 export default Client;

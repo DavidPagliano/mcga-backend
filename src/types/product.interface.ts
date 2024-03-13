@@ -1,7 +1,6 @@
 export interface ProductData {
-    codigo:number;
+    codigo: number;
     descripcion: string;
     stock: number;
     precio: number;
-  }
-  
+}

@@ -1,24 +1,25 @@
-import { Schema, model } from "mongoose";
-import { ProductData } from "../types/product.interface";
-
+import { Schema, model } from 'mongoose';
+import { ProductData } from '../types/product.interface';
 
 const productSchema = new Schema({
     codigo: {
-      type: Number,
-      required: true,
+        type: Number,
+        required: true,
     },
     descripcion: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     stock: {
-      type: Number,
-      required: true,
+        type: Number,
+        required: true,
     },
     precio: {
-      type: Number,
-      required: true,
+        type: Number,
+        required: true,
     },
-  });
-  const Product = model<ProductData>('Product', productSchema);
-  export default Product;
+}, { versionKey: false });
+
+const Product = model<ProductData>('Product', productSchema);
+
+export default Product;

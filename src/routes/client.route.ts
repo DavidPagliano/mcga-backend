@@ -1,11 +1,9 @@
 import { Router } from 'express';
-
 import clientController from '../controllers/client.controller';
 
 const clientRouter = Router();
 
 //GET - http://localhost:3000/client/
-
 clientRouter.get('/', clientController.getClients);
 
 //GET - http://localhost:3000/client/:codigo
@@ -19,7 +17,5 @@ clientRouter.put('/update/:codigo', clientController.updateClient);
 
 //DELETE - http://localhost:3000/client/delete/:Codigo
 clientRouter.delete('/delete/:codigo', clientController.deleteClient);
-
-
 
 export default clientRouter;
