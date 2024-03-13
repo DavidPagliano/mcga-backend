@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-import user from '../models/user';
+import User from '../models/user';
 
 const userController = {
   getUsers: async (_req: Request, res: Response) => {
     try {
-      const allUser = await user.find({});
+      const allUser = await User.find({});
       return res.status(200).json({
         status: 200,
         total: allUser.length,
@@ -24,7 +24,7 @@ const userController = {
       // Cambio el id de mongo DB por el codigo para usar de busqueda
       const userCodigo: number = parseInt(_req.params.codigo);
 
-      const userFound = await user.findOne({ codigo: userCodigo });
+      const userFound = await User.findOne({ codigo: userCodigo });
       if (!userFound) {
         return res.status(404).json({
           message: 'Usuario no encontrado',
@@ -50,7 +50,7 @@ const userController = {
     try {
 
       const {codigo, email, password} = req.body;
-      const newUser = new user({ ...req.body });
+      const newUser = new User({ ...req.body });
       const addUser = await newUser.save();
       
       if(codigo && email && password) {
@@ -87,7 +87,7 @@ const userController = {
       }
 
       // Actualizar el usuario utilizando findOneAndUpdate
-      const userUpdated = await user.findOneAndUpdate({codigo: userCodigo}, req.body, {
+      const userUpdated = await User.findOneAndUpdate({codigo: userCodigo}, req.body, {
         new: true,
       });
 
@@ -121,7 +121,7 @@ const userController = {
     try {
       const userCodigo: number = parseInt(req.params.codigo);
       // Eliminar el usuario utilizando findByIdAndDelete
-      const userFound = await user.findOneAndDelete({codigo: userCodigo});
+      const userFound = await User.findOneAndDelete({codigo: userCodigo});
 
       // Verificar si se encontró y eliminó el usuario correctamente
       if (!userFound) {

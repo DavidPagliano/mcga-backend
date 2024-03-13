@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { ProductData } from '../types/product.interface';
 
-const productSchema = new Schema({
+const ProductSchema = new Schema({
     codigo: {
         type: Number,
         required: true,
@@ -20,6 +20,6 @@ const productSchema = new Schema({
     },
 }, { versionKey: false });
 
-const Product = model<ProductData>('Product', productSchema);
+const Product = model<ProductData>('Product', ProductSchema);
 
 export default Product;

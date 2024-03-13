@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { UserData } from '../types/user.interface';
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
     codigo:{
         type: Number,
         required: true,
@@ -17,6 +17,6 @@ const userSchema = new Schema({
     },
 }, { versionKey: false });
 
-const user = model<UserData>('User', userSchema);
+const User = model<UserData>('User', UserSchema);
 
-export default user;
+export default User;
