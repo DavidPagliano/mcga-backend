@@ -117,7 +117,7 @@ const clientController = {
           error: true,
         });
       }
-      return res.status(200).json({
+      return res.status(204).json({
         message: 'Cliente eliminado exitosamente.',
         data: clientFound,
         error: false,

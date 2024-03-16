@@ -9,13 +9,13 @@ userRouter.get('/', userController.getUsers);
 //GET - http://localhost:3000/user/:codigo
 userRouter.get('/:codigo', userController.getByUser);
 
-//POST - http://localhost:3000/user/create
-userRouter.post('/create',userController.createUser);
+//POST - http://localhost:3000/user/
+userRouter.post('/',userController.createUser);
 
-//PUT - http://localhost:3000/user/update/:codigo
-userRouter.put('/update/:codigo', userController.updateUser);
+//PUT - http://localhost:3000/user/:codigo
+userRouter.put('/:codigo', userController.updateUser);
 
-//DELETE - http://localhost:3000/user/delete/:codigo
-userRouter.delete('/delete/:codigo', userController.deleteUser);
+//DELETE - http://localhost:3000/user/:codigo
+userRouter.delete('/:codigo', userController.deleteUser);
 
 export default userRouter;

@@ -88,7 +88,7 @@ const productController = {
           error: true,
         });
       }
-      return res.status(200).json({
+      return res.status(204).json({
         message: 'Producto actualizado exitosamente.',
         data: productUpdated,
         error: false,
@@ -114,7 +114,7 @@ const productController = {
       }
 
       // Devolver una respuesta exitosa indicando que el usuario ha sido eliminado
-      return res.status(200).json({
+      return res.status(204).json({
         message: 'Producto eliminado exitosamente.',
         data: productFound,
         error: false,

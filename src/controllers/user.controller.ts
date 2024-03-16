@@ -100,7 +100,7 @@ const userController = {
       }
 
       // Devolver una respuesta exitosa con el usuario actualizado
-      return res.status(200).json({
+      return res.status(204).json({
         message: 'Usuario actualizado exitosamente.',
         data: userUpdated,
         error: false,
@@ -132,7 +132,7 @@ const userController = {
       }
 
       // Devolver una respuesta exitosa indicando que el usuario ha sido eliminado
-      return res.status(200).json({
+      return res.status(204).json({
         message: 'Usuario eliminado exitosamente.',
         data: userFound,
         error: false,

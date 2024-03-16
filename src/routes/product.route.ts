@@ -6,16 +6,16 @@ const productRouter = Router();
 //GET - http://localhost:3000/product/
 productRouter.get('/', productController.getProducts);
 
-//GET - http://localhost/product/:codigo
+//GET - http://localhost:3000/product/:codigo
 productRouter.get('/:codigo', productController.getByProduct);
 
-//POST - http://localhost:3000/product/create
-productRouter.post('/create',productController.createProduct);
+//POST - http://localhost:3000/product/
+productRouter.post('/',productController.createProduct);
 
-//PUT - http://localhost:3000/product/update/:codigo
-productRouter.put('/update/:codigo', productController.updateProduct);
+//PUT - http://localhost:3000/product/:codigo
+productRouter.put('/:codigo', productController.updateProduct);
 
-//DELETE - http://localhost:3000/product/delete/:codigo
-productRouter.delete('/delete/:codigo', productController.deleteProduct);
+//DELETE - http://localhost:3000/product/:codigo
+productRouter.delete('/:codigo', productController.deleteProduct);
 
 export default productRouter;
