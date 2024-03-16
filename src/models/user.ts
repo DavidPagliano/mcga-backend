@@ -15,7 +15,11 @@ const UserSchema = new Schema({
         minLength: 8,
         required: true,
     },
-}, { versionKey: false });
+}, 
+{ 
+    versionKey: false,
+    timestamps: true, 
+});
 
 const User = model<UserData>('User', UserSchema);
 
